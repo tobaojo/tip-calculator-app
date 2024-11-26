@@ -1,12 +1,21 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 const InputField = ({
   formLabel,
   icon,
+  value,
+  setValue,
 }: {
   formLabel: string;
   icon?: ReactNode;
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseFloat(e.target.value) || 0;
+    setValue(value);
+  };
+
   return (
     <div className="flex flex-col">
       <label htmlFor="bill" className="font-bold text-darkGrayishCyan p-1">
@@ -20,7 +29,9 @@ const InputField = ({
           type="number"
           name="bill"
           id="bill"
-          className="bg-gray-100 border border-gray-100 text-darkGrayishCyan text-xl text-right font-bold rounded-lg focus:outline-verydarkCyan focus:ring-0 focus:border-verydarkCyan block w-full p-2.5"
+          value={value}
+          onChange={handleChange}
+          className="bg-veryLightGrayishCyan border border-strongCyan text-darkGrayishCyan text-xl text-right font-bold rounded-lg focus:outline-verydarkCyan focus:ring-0 focus:border-verydarkCyan block w-full p-2.5"
         />
       </div>
     </div>
