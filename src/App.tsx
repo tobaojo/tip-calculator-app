@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Logo from "./components/Logo/Logo";
 import InputField from "./components/InputField/InputField";
@@ -10,7 +10,8 @@ import Output from "./components/Output/Output";
 function App() {
   const [billInput, setBillInput] = useState<number>(0);
   const [peopleInput, setPeopleInput] = useState<number>(0);
-
+  const [tipValue, setTipValue] = useState<number>(0);
+  console.log(tipValue);
   return (
     <>
       <Logo className="m-6" />
@@ -23,7 +24,7 @@ function App() {
               value={billInput}
               setValue={setBillInput}
             />
-            <TipSelector />
+            <TipSelector setTipValue={setTipValue} />
             <InputField
               formLabel={"Number of People"}
               icon={<PeopleIcon />}
