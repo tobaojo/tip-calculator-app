@@ -5,7 +5,7 @@ import DollarIcon from "../DollarIcon/DollarIcon";
 
 describe("input field", () => {
   const TestWrapper = () => {
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState("");
     return (
       <InputField
         formLabel="Bill"
@@ -24,17 +24,24 @@ describe("input field", () => {
 
   it("renders the input component with the correct attributes", () => {
     render(<InputField value="0" onChange={() => {}} />);
-    const input = screen.getByRole("spinbutton");
+    const input = screen.getByRole("textbox");
     expect(input).toBeInTheDocument();
-    expect(input).toHaveAttribute("type", "number");
+    expect(input).toHaveAttribute("type", "text");
     expect(input).toHaveAttribute("name", "bill");
     expect(input).toHaveAttribute("id", "bill");
   });
 
   it("allows user input", () => {
     render(<TestWrapper />);
-    const input = screen.getByRole("spinbutton");
-    fireEvent.change(input, { target: { value: 123.45 } });
-    expect(input).toHaveValue(123.45);
+    const input = screen.getByRole("textbox");
+    fireEvent.change(input, { target: { value: "123.45" } });
+    expect(input).toHaveValue("123.45");
+  });
+
+  it("does not allow letters to be input", () => {
+    render(<TestWrapper />);
+    const input = screen.getByRole("textbox");
+    fireEvent.change = (input, { target: { value: "abc" } });
+    expect(input).toHaveValue("");
   });
 });

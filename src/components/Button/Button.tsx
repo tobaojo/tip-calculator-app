@@ -1,3 +1,14 @@
+type ButtonProps = {
+  width: string;
+  label: string;
+  colour: string;
+  hoverColour?: string;
+  setCustomAmount?: React.Dispatch<React.SetStateAction<number | string>>;
+  fn?: () => void;
+  value?: number;
+  setTipValue?: React.Dispatch<React.SetStateAction<number>>;
+};
+
 const Button = ({
   width,
   label,
@@ -5,19 +16,18 @@ const Button = ({
   hoverColour,
   setTipValue,
   value,
+  setCustomAmount,
   fn,
-}: {
-  width: string;
-  label: string;
-  colour: string;
-  hoverColour?: string;
-  fn?: () => void;
-  value: number;
-  setTipValue: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+}: ButtonProps) => {
   const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setTipValue(value);
+    if (setTipValue && setCustomAmount) {
+      if (value) {
+        setTipValue(value);
+        setCustomAmount(0);
+      }
+    }
+
     if (fn) {
       fn();
     }
