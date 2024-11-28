@@ -58,7 +58,7 @@ const Output = ({
     customAmount,
   );
   return (
-    <div className="w-full h-full flex flex-col gap-10 max-w-full border border-verydarkCyan bg-verydarkCyan rounded-2xl p-6 self-center md:max-w-3xl justify-between">
+    <div className="w-full h-full flex flex-col gap-10 max-w-full border border-verydarkCyan bg-verydarkCyan rounded-3xl p-6 self-center md:max-w-3xl justify-between">
       <div className="flex flex-col space-y-8">
         <div className="tip-amount flex justify-between">
           <div>
@@ -67,7 +67,7 @@ const Output = ({
           </div>
           <div className="output">
             <p className="text-strongCyan text-4xl">
-              {tipAndTotal.tipAmountPerPerson}
+              ${tipAndTotal.tipAmountPerPerson}
             </p>
           </div>
         </div>
@@ -78,7 +78,7 @@ const Output = ({
           </div>
           <div className="output">
             <p className="text-strongCyan  text-4xl">
-              {tipAndTotal.totalBillPerPerson}
+              ${tipAndTotal.totalBillPerPerson}
             </p>
           </div>
         </div>

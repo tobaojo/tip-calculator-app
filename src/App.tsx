@@ -22,8 +22,8 @@ function App() {
 
   return (
     <>
-      <Logo className="m-8" />
-      <div className="flex flex-col card w-full max-w-full border border-gray-200 bg-white rounded-2xl p-4 gap-4 h-screen self-center space-y-6 justify-evenly md:max-w-5xl md:h-[50vh]">
+      <Logo className="m-20" />
+      <div className="flex flex-col card w-full max-w-full border border-gray-200 bg-white rounded-3xl p-4 gap-4 h-screen self-center space-y-6 justify-evenly md:max-w-4xl md:h-[50vh]">
         <form className="flex flex-col gap-7 md:flex-row h-full">
           <div className="flex flex-col w-full justify-evenly">
             <InputField

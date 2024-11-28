@@ -35,7 +35,6 @@ const InputField = ({ formLabel, icon, value, setValue }: InputFieldProps) => {
         <input
           type="text"
           name="bill"
-          id="bill"
           placeholder="0"
           value={value}
           onChange={handleChange}
